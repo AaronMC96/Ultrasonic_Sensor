@@ -10,6 +10,7 @@ y después regrese a 0 grados.
 */
 /* ewdit edit*/
 
+#define DMAX 25
 
 int DISTANCIA = 0;
 int pinLedOn=16;
@@ -51,7 +52,7 @@ void loop() {
   //Mostramos la disstancia
   Serial.println(DISTANCIA);
   //Si la distancia es menor a 20 encendemos el led
-  if (DISTANCIA < 100) {
+  if (DISTANCIA < DMAX) {
     digitalWrite(pinLedOn, HIGH);
     digitalWrite(pinLedOff, LOW);
   } 
