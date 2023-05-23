@@ -1,23 +1,13 @@
 #include <Arduino.h>
-/*
-Mira el tutorial en 
-Programador Novato: https://www.programadornovato.com/esp32-con-servo-girar-servomotor/
-Youtube: https://www.youtube.com/watch?v=8f_nba1umlA&list=PLCTD_CpMeEKTvjzabAvLGHakg-ql6t0q6&index=8
 
-En este tutorial trabajaremos en el Esp32 con 
-servo y haremos que un servomotor gire 180 grados 
-y después regrese a 0 grados.
-*/
-/* ewdit edit*/
 
 #define DMAX 25
-#define DISTANCIA  00
-#define pinLedOn   16
-#define pinLedOff  17
-#define pinEco     12
-#define pinGatillo 13
 
-
+int DISTANCIA = 0;
+int pinLedOn=16;
+int pinLedOff=17;
+int pinEco=12;
+int pinGatillo=13;
 long readUltrasonicDistance(int triggerPin, int echoPin)
 {
   //Iniciamos el pin del emisor de reuido en salida
