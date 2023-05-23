@@ -7,13 +7,13 @@
 #define DISTANCIA  00
 #define pinLedOn   16
 #define pinLedOff  17
-#define pinEco     09
-#define pinGatillo 10
+#define pinEco     26
+#define pinGatillo 27
 
-#define R1  12
-#define R2  13
-#define R3  14
-#define R4  15
+#define R1  33
+#define R2  32
+#define R3  34
+#define R4  35
 
 
 long readUltrasonicDistance(int triggerPin, int echoPin)
@@ -38,7 +38,20 @@ long readUltrasonicDistance(int triggerPin, int echoPin)
 
 void relay(int d)
 {
+  if( d < DMAX)
+  {
+    digitalWrite(R1, HIGH);
+    
+    digitalWrite(pinLedOn, HIGH);
+    digitalWrite(pinLedOff, LOW); 
+  } 
+  else
+  {
+    digitalWrite(R1, LOW);
 
+    digitalWrite(pinLedOn, LOW);
+    digitalWrite(pinLedOff, HIGH);
+  }
 }
 
 void setup() {
@@ -55,15 +68,7 @@ void loop() {
   DISTANCIA = 0.01723 * readUltrasonicDistance(pinGatillo, pinEco);
   //Mostramos la disstancia
   Serial.println(DISTANCIA);
-  //Si la distancia es menor a 20 encendemos el led
-  if (DISTANCIA < DMAX) {
-    digitalWrite(pinLedOn, HIGH);
-    digitalWrite(pinLedOff, LOW);
-  } 
-  //Si la distancia es mayor a 20 apagamos el led
-  else {
-    digitalWrite(pinLedOn, LOW);
-    digitalWrite(pinLedOff, HIGH);
-  }
+
+  relay(DISTANCIA);
   delay(10);
 }
