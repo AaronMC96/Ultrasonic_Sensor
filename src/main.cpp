@@ -1,13 +1,16 @@
 #include <Arduino.h>
+/*
 
+*/
 
 #define DMAX 25
+#define DISTANCIA  00
+#define pinLedOn   16
+#define pinLedOff  17
+#define pinEco     12
+#define pinGatillo 13
 
-int DISTANCIA = 0;
-int pinLedOn=16;
-int pinLedOff=17;
-int pinEco=12;
-int pinGatillo=13;
+
 long readUltrasonicDistance(int triggerPin, int echoPin)
 {
   //Iniciamos el pin del emisor de reuido en salida
