@@ -8,6 +8,8 @@ En este tutorial trabajaremos en el Esp32 con
 servo y haremos que un servomotor gire 180 grados 
 y después regrese a 0 grados.
 */
+/* ewdit edit*/
+
 
 int DISTANCIA = 0;
 int pinLedOn=16;
