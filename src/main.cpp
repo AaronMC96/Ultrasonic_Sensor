@@ -7,8 +7,13 @@
 #define DISTANCIA  00
 #define pinLedOn   16
 #define pinLedOff  17
-#define pinEco     12
-#define pinGatillo 13
+#define pinEco     09
+#define pinGatillo 10
+
+#define R1  12
+#define R2  13
+#define R3  14
+#define R4  15
 
 
 long readUltrasonicDistance(int triggerPin, int echoPin)
@@ -29,6 +34,11 @@ long readUltrasonicDistance(int triggerPin, int echoPin)
   pinMode(echoPin, INPUT);
   // Calculamos el tiempo que tardo en regresar el sonido
   return pulseIn(echoPin, HIGH);
+}
+
+void relay(int d)
+{
+
 }
 
 void setup() {
